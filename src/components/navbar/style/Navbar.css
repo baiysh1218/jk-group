@@ -1,0 +1,258 @@
+body {
+  margin: 0;
+  /* background-color: grey; */
+  font-family: "PT Sans", sans-serif;
+  /* overflow: hidden; */
+  overflow-x: hidden;
+  /* transition: 0.2s; */
+}
+* {
+  box-sizing: border-box;
+  /* font-weight: 400; */
+}
+a {
+  text-decoration: none;
+  color: black;
+  transition: 0.2s;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/*!------------------------------------------------------------------------------------------------ navbar start */
+header {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 999;
+  background-color: #f1f2f2;
+  color: #231f20;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-style: 24px;
+}
+#header-logo {
+  width: 13%;
+  font-size: 50px;
+  text-align: right;
+  cursor: pointer;
+  margin-top: 1%;
+}
+
+#header-logo img {
+  width: 70%;
+}
+
+.header-content {
+  display: flex;
+  height: 100%;
+}
+
+.header-list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  font-size: 18px;
+  /* margin-right: 5%; */
+  margin-right: 40px;
+  white-space: nowrap;
+  padding: 0;
+}
+.header-list-item {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: border 0.2s ease-in-out 0s;
+  transform: translateZ(0px);
+  position: relative;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.header-list-item:hover img {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+.header-list-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #231f20;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.header-list-item:hover::before {
+  transform: scaleX(1);
+}
+
+.header-list-item svg {
+  margin-left: 7px;
+}
+
+.header-list-item:hover {
+  cursor: pointer;
+  /* border-bottom: 2px solid #231f20; */
+}
+
+.header-btns {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  margin-right: 2%;
+}
+.header-btns button {
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  width: 60px;
+  cursor: pointer;
+}
+
+.header-btns .search {
+  background-color: #f1f2f2;
+}
+.header-btns .search img {
+  width: 49%;
+}
+.header-btns svg {
+  fill: #231f20;
+  width: 50%;
+  transition: fill 0.2s ease-in-out 0s;
+}
+
+.header-btns .search svg {
+  fill: #3f3f42;
+}
+
+/* .header-btns svg:hover {
+  fill: rgb(157, 211, 84);
+} */
+
+.header-btns .languages {
+  background-color: #f1f2f2;
+}
+
+.header-btns .menu {
+  background-color: #f1f2f2;
+}
+
+.header-btns .menu svg {
+  width: 50%;
+}
+.menu-close {
+  display: none;
+  margin: auto;
+}
+.menu-display-none {
+  display: none;
+}
+.menu-display-block {
+  display: flex;
+}
+.top {
+  margin-top: 80px;
+}
+
+/* !modal window start */
+.modal-window-box {
+  display: none;
+
+  position: sticky;
+  z-index: -1000;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  /* right: -100%; */
+  overflow: hidden;
+}
+.modal-window-box-display {
+  display: block;
+  z-index: 998;
+  background-color: #0000007c;
+}
+.modal-window-content-box {
+  padding-top: 110px;
+  width: 300px;
+  height: 100%;
+  background-color: #3f3f42;
+  margin-left: auto;
+  transition: 0.5s;
+  z-index: 10000;
+}
+
+.modal-window-content-box-dissapear {
+  margin-right: -45%;
+}
+
+.modal-window-content-box-move {
+  margin-right: 0;
+  padding-top: 240px;
+  /* margin-top: 8%; */
+}
+.modal-window-list-item-box {
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  /* border-top: 1px solid rgba(255, 255, 255, 0.34); */
+  transition: 0.2s;
+}
+.modal-window-list-item {
+  width: 70%;
+  margin: auto;
+}
+/* .modal-window-list-item-box:hover,
+.modal-window-dropdown-content li:hover {
+  color: #9dd354;
+  cursor: pointer;
+} */
+.modal-window-list-item-box button {
+  width: 50px;
+  height: 50px;
+  transition: 2s;
+}
+.modal-window-dropdown-content li {
+  color: white;
+  padding: 5% 0 4% 10%;
+  font-size: 18px;
+  transition: 0.2s;
+  display: none;
+}
+
+/* .modal-window-dropdown-content {
+  display: none;
+} */
+.modal-window-list-item-box .green-btn-arrow svg {
+  transition: 1s;
+}
+/* .modal-window-list-item-box .green-btn-arrow svg:hover {
+  transform: rotate(180deg);
+} */
+/* !modal window end */
+
+.menu {
+  display: none;
+}
+
+.nav_logo_mobile {
+  display: none;
+}
