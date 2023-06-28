@@ -16,7 +16,6 @@ const MainRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/products" element={<ProjectsList />} />
       <Route path="/team" element={<Team />} />
-
       {/* The following route matches any other path */}
       <Route path="/*" element={<PageNotFound />} />
     </Routes>

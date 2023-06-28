@@ -1,7 +1,7 @@
 .stats_number_wrapper_main {
   width: 90%;
   margin: auto;
-  background-color: rgb(44, 153, 189);
+  /* background-color: rgb(44, 153, 189); */
   color: white;
   display: flex;
   height: 100px;
@@ -41,4 +41,13 @@
 }
 .stats_content_wrapper p {
   font-size: 28px;
+}
+
+.stats-number {
+  background-color: rgb(44, 153, 189);
+  width: 33%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

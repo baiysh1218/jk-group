@@ -3,13 +3,26 @@ import "./style/FormConnect.css";
 
 const FormConnect = () => {
   const [selectedOption, setSelectedOption] = useState("");
+  const [address, setAddress] = useState("");
+  const [contacts, setContacts] = useState("");
+  const [email, setEmail] = useState("");
+  const [text, setText] = useState("");
+  const [checkBox, setCheckBox] = useState("off");
 
   const handleChange = event => {
     setSelectedOption(event.target.value);
   };
 
-  const handleForm = e => {
+  const handleChangeCheckBox = () => {
+    checkBox === "off" ? setCheckBox("on") : setCheckBox("off");
+  };
+
+  const handleFormSubmit = e => {
     e.preventDefault();
+    setAddress("");
+    setContacts("");
+    setEmail("");
+    setText("");
   };
 
   return (
@@ -18,29 +31,63 @@ const FormConnect = () => {
         <div className="header_form_connect">
           <h3>JK Group</h3>
         </div>
-        <form action="submit" className="form_inputs" onSubmit={handleForm}>
+        <form className="form_inputs" onSubmit={handleFormSubmit}>
           <div className="form_input_wrapper">
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
+            <input
+              value={address}
+              type="text"
+              onChange={e => setAddress(e.target.value)}
+              placeholder="address"
+              required
+            />
+            <input
+              value={contacts}
+              type="text"
+              onChange={e => setContacts(e.target.value)}
+              placeholder="contacts"
+              required
+            />
+            <input
+              value={email}
+              type="email"
+              onChange={e => setEmail(e.target.value)}
+              placeholder="email"
+              required
+            />
+            <input
+              value={text}
+              type="text"
+              onChange={e => setText(e.target.value)}
+              placeholder="text"
+              required
+            />
             <select value={selectedOption} onChange={handleChange}>
-              <option value="options ">Выберите</option>
-              <option value="options option1">Опция 1</option>
-              <option value="options option2">Опция 2</option>
-              <option value="options option3">Опция 3</option>
+              <option value="">Выберите направление</option>
+              <option value="option1">3D проектирование (BIM)</option>
+              <option value="option2">Строительство</option>
+              <option value="option3">Высокоточная металлообработка</option>
+              <option value="option3">
+                Производство и монтаж вентиляционного оборудования
+              </option>
+              <option value="option3">Учебный центр по стандартам TPS</option>
+              <option value="option3">Международная логистика</option>
             </select>
           </div>
           <hr />
-          <input type="checkbox" />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, quos
-            quo. Illo aliquam distinctio maiores commodi atque amet quisquam
-            quod rerum, iure nemo quis repudiandae natus iste eum harum
-            reprehenderit quas nam quasi eos expedita blanditiis neque
-            obcaecati! Consectetur, molestias.
-          </p>
-          <button type="submit">Submit</button>
+          <div className="select_agreement">
+            <input type="checkbox" onChange={handleChangeCheckBox} required />
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, quos
+              quo. Illo aliquam distinctio maiores commodi atque amet quisquam
+              quod rerum, iure nemo quis repudiandae natus iste eum harum
+              reprehenderit quas nam quasi eos expedita blanditiis neque
+              obcaecati! Consectetur, molestias.
+            </p>
+            <div className="select_agreement_button_wrapper">
+              <button type="submit">Submit</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>

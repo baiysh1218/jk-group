@@ -3,6 +3,7 @@
   z-index: 5;
   height: 500px;
   background-color: #f2f2f2;
+  margin-bottom: 5%;
 }
 .form_connect_wrapper {
   padding-top: 5%;
@@ -57,12 +58,76 @@
   padding: 0;
   font-size: 23px;
   margin-bottom: 4%;
+  appearance: none;
 }
 
-.form_input_wrapper select {
-  background-color: transparent;
+.form_input_wrapper select option {
+  background-color: #f2f2f2;
+  border: none;
+  outline: none;
+}
+.form_input_wrapper select option:hover {
+  background-color: #9a9a9a;
+}
+.form_input_wrapper select option:checked {
+  background-color: #92bd59;
 }
 .form_input_wrapper select:focus {
   outline: none;
   background-color: transparent;
+}
+.select_agreement {
+  margin-top: 2%;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #92bd59;
+  border-color: #92bd59;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 3px;
+  background-color: #f2f2f2;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked::before {
+  background-color: #fff;
+}
+.select_agreement_button_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.select_agreement_button_wrapper button {
+  width: 140px;
+  height: 40px;
+  background-color: #92bd59;
+  border: none;
+  color: white;
+  cursor: pointer;
 }

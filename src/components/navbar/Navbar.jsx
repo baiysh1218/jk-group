@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="header-content">
           <ul className="header-list">
             <li className="header-list-item" onClick={() => navigate("/about")}>
-              О компании
+              О нас
               <img src={arrow} alt="" className="arrow_nav" width={"25px"} />
             </li>
             <li
