@@ -61,7 +61,7 @@ const FormConnect = () => {
               placeholder="text"
               required
             />
-            <select value={selectedOption} onChange={handleChange}>
+            <select value={selectedOption} onChange={handleChange} required>
               <option value="">Выберите направление</option>
               <option value="option1">3D проектирование (BIM)</option>
               <option value="option2">Строительство</option>

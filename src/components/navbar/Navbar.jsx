@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style/Navbar.css";
 
@@ -7,9 +7,138 @@ import JKLogoSecond from "../../assets/logo/JKLogoSecond.png";
 
 import search from "../../assets/icons/search.png";
 import arrow from "../../assets/icons/down-arrow.png";
+import DropdownContent from "../layout/dropdownContent/DropdownContent";
 
 const Navbar = () => {
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const navigate = useNavigate();
+
+  const toggleDropdown = index => {
+    setActiveDropdown(index === activeDropdown ? null : index);
+  };
+
+  const dropDownContent = [
+    {
+      title: "О нас",
+      content: {
+        contentTitle: [
+          "О НАС",
+          "JK ENGINEERING",
+          "JK CONSTRUCTION",
+          "JK LOGISTIC",
+          "JK METALPROF",
+        ],
+        contentItem: [
+          ["история компании", "миссия и ценности", "партнеры"],
+          [
+            "3D проектирование (BIM)",
+            "Производство и монтаж вентиляционного оборудования",
+            "Учебный центр по стандартам TPS",
+          ],
+          ["Строительство"],
+          ["Строительство"],
+          ["Высокоточная металлообработка"],
+        ],
+      },
+      id: 1,
+    },
+    {
+      title: "Проекты",
+      content: {
+        contentTitle: [
+          "О НАС",
+          "JK ENGINEERING",
+          "JK CONSTRUCTION",
+          "JK LOGISTIC",
+          "JK METALPROF",
+        ],
+        contentItem: [
+          ["история компании", "миссия и ценности", "партнеры"],
+          [
+            "3D проектирование (BIM)",
+            "Производство и монтаж вентиляционного оборудования",
+            "Учебный центр по стандартам TPS",
+          ],
+          ["Строительство"],
+          ["Строительство"],
+          ["Высокоточная металлообработка"],
+        ],
+      },
+      id: 2,
+    },
+    {
+      title: "Команда",
+      content: {
+        contentTitle: [
+          "О НАС",
+          "JK ENGINEERING",
+          "JK CONSTRUCTION",
+          "JK LOGISTIC",
+          "JK METALPROF",
+        ],
+        contentItem: [
+          ["история компании", "миссия и ценности", "партнеры"],
+          [
+            "3D проектирование (BIM)",
+            "Производство и монтаж вентиляционного оборудования",
+            "Учебный центр по стандартам TPS",
+          ],
+          ["Строительство"],
+          ["Строительство"],
+          ["Высокоточная металлообработка"],
+        ],
+      },
+      id: 3,
+    },
+    {
+      title: "Новости",
+      content: {
+        contentTitle: [
+          "О НАС",
+          "JK ENGINEERING",
+          "JK CONSTRUCTION",
+          "JK LOGISTIC",
+          "JK METALPROF",
+        ],
+        contentItem: [
+          ["история компании", "миссия и ценности", "партнеры"],
+          [
+            "3D проектирование (BIM)",
+            "Производство и монтаж вентиляционного оборудования",
+            "Учебный центр по стандартам TPS",
+          ],
+          ["Строительство"],
+          ["Строительство"],
+          ["Высокоточная металлообработка"],
+        ],
+      },
+      id: 4,
+    },
+    {
+      title: "Карьера",
+      content: {
+        contentTitle: [
+          "О НАС",
+          "JK ENGINEERING",
+          "JK CONSTRUCTION",
+          "JK LOGISTIC",
+          "JK METALPROF",
+        ],
+        contentItem: [
+          ["история компании", "миссия и ценности", "партнеры"],
+          [
+            "3D проектирование (BIM)",
+            "Производство и монтаж вентиляционного оборудования",
+            "Учебный центр по стандартам TPS",
+          ],
+          ["Строительство"],
+          ["Строительство"],
+          ["Высокоточная металлообработка"],
+        ],
+      },
+      id: 5,
+    },
+  ];
 
   return (
     <>
@@ -21,48 +150,33 @@ const Navbar = () => {
         </div>
         <div className="header-content">
           <ul className="header-list">
-            <li className="header-list-item" onClick={() => navigate("/about")}>
-              О нас
-              <img src={arrow} alt="" className="arrow_nav" width={"25px"} />
-            </li>
-            <li
-              className="header-list-item"
-              onClick={() => navigate("/products")}>
-              Проекты
-              <img src={arrow} alt="" className="arrow_nav" width={"25px"} />
-            </li>
-            <li className="header-list-item" onClick={() => navigate("/team")}>
-              Команда
-              <img src={arrow} alt="" className="arrow_nav" width={"25px"} />
-            </li>
-            <li
-              onClick={() => navigate("/career")}
-              className="header-list-item">
-              Карьера
-              <img src={arrow} alt="" className="arrow_nav" width={"25px"} />
-            </li>
-            <li onClick={() => navigate("/news")} className="header-list-item">
-              Новости
-              <img src={arrow} alt="" className="arrow_nav" width={"25px"} />
-            </li>
-            <li
-              onClick={() => navigate("/contacts")}
-              className="header-list-item">
-              Контакты
-              <img src={arrow} alt="" className="arrow_nav" width={"25px"} />
-            </li>
+            {dropDownContent.map((item, index) => (
+              <>
+                <li
+                  key={index}
+                  onClick={() => toggleDropdown(index)}
+                  className="header-list-item">
+                  {item.title}
+                  <img
+                    src={arrow}
+                    alt=""
+                    className="arrow_nav"
+                    width={"25px"}
+                  />
+                </li>
+                {activeDropdown === index && (
+                  <DropdownContent
+                    content={dropDownContent[0].content}
+                    index={index}
+                  />
+                )}
+              </>
+            ))}
           </ul>
         </div>
 
         <div className="header-btns">
           <button className="search">
-            {/* <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="bi bi-search"
-                viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-              </svg> */}
             <img src={search} alt="" />
           </button>
           <button className="languages">
@@ -116,6 +230,7 @@ const Navbar = () => {
           </button>
         </div>
       </header>
+
       <div className="modal-window-box">
         <div className="modal-window-content-box modal-window-content-box-dissapear">
           <ul>

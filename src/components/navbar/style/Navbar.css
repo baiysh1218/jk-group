@@ -72,9 +72,10 @@ header {
   border-bottom: 2px solid transparent;
   transition: border 0.2s ease-in-out 0s;
   transform: translateZ(0px);
-  position: relative;
+  /* position: relative; */
   justify-content: center;
   transition: 0.3s;
+  width: 100%;
 }
 
 .header-list-item:hover img {
@@ -255,4 +256,119 @@ header {
 
 .nav_logo_mobile {
   display: none;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  position: absolute;
+  display: inline-block;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  z-index: 1;
+  top: 50px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f2f2f2;
+  left: 0;
+  padding: 50px 0;
+}
+.dropdown_wrapper_content {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  margin-top: 50px;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.dropdown_wrapper_item {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3%;
+  font-size: 20px;
+}
+.drop_down_content_item_h3 h3 {
+  border-bottom: 2px solid transparent;
+  transition: border 0.2s ease-in-out 0s;
+  transform: translateZ(0px);
+  position: relative;
+  transition: 0.3s;
+}
+
+.drop_down_content_item_h3 h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #231f20;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.drop_down_content_item_h3 h3:hover::before {
+  transform: scaleX(1);
+}
+
+.dropdown_wrapper_content hr {
+  border: 1px solid rgb(0, 204, 0);
+  width: 100%;
+  margin-top: 1.5%;
+}
+
+.dropdown_wrapper_content .dropdown_wrapper_item:first-child {
+  margin-bottom: 3%;
+}
+
+.dropdown_wrapper_content * {
+  cursor: pointer;
+}
+
+.drop_down_content_item_h3 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  font-size: 26px;
+}
+
+.dropdown-content_p {
+  width: 90%;
+  margin-top: 50px;
+  /* margin: auto; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 23px;
+}
+
+.dropdown_wrapper {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  height: 100%;
+}
+.drop_down_content_wrapper_p {
+  display: flex;
+  width: 100%;
+}
+.drop_down_content_wrapper_p p {
+  margin-right: 10%;
+  white-space: normal;
+}
+.drop_down_item_p {
+  width: 20%;
+}
+.drop_down_main_wrapper {
+  width: 100%;
 }
