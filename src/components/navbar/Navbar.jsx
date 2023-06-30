@@ -20,6 +20,7 @@ const Navbar = () => {
   const dropDownContent = [
     {
       title: "О нас",
+      navigate: "/about",
       content: {
         contentTitle: [
           "О НАС",
@@ -44,6 +45,7 @@ const Navbar = () => {
     },
     {
       title: "Проекты",
+      navigate: "/project",
       content: {
         contentTitle: [
           "О НАС",
@@ -68,6 +70,7 @@ const Navbar = () => {
     },
     {
       title: "Команда",
+      navigate: "/team",
       content: {
         contentTitle: [
           "О НАС",
@@ -92,6 +95,7 @@ const Navbar = () => {
     },
     {
       title: "Новости",
+      navigate: "/news",
       content: {
         contentTitle: [
           "О НАС",
@@ -116,6 +120,7 @@ const Navbar = () => {
     },
     {
       title: "Карьера",
+      navigate: "/about",
       content: {
         contentTitle: [
           "О НАС",
@@ -168,6 +173,8 @@ const Navbar = () => {
                   <DropdownContent
                     content={dropDownContent[0].content}
                     index={index}
+                    toggleDropdown={toggleDropdown}
+                    navigatePath={item.navigate}
                   />
                 )}
               </>
