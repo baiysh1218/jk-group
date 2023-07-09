@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style/NewsInfo.css";
 
 const NewsInfo = () => {
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsOverlayVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOverlayVisible(false);
+  };
   return (
     <section className="news_wrapper">
-      <div className="news_content_table">
+      <div
+        className="news_content_table"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <div className="news_content_item">
           <h3>тема новости</h3>
           <p>
@@ -13,7 +25,10 @@ const NewsInfo = () => {
             perspiciatis doloribus nihil.
           </p>
         </div>
-        <div className="news_content_overlay"></div>
+        <div
+          className={`news_content_overlay ${
+            isOverlayVisible ? "visible" : "leave"
+          }`}></div>
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +44,10 @@ const NewsInfo = () => {
           </svg>
         </button>
       </div>
-      <div className="news_content_table">
+      <div
+        className="news_content_table"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <div className="news_content_item">
           <h3>тема новости</h3>
           <p>
@@ -38,7 +56,10 @@ const NewsInfo = () => {
             perspiciatis doloribus nihil.
           </p>
         </div>
-        <div className="news_content_overlay"></div>
+        <div
+          className={`news_content_overlay ${
+            isOverlayVisible ? "visible" : "leave"
+          }`}></div>
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +75,10 @@ const NewsInfo = () => {
           </svg>
         </button>
       </div>
-      <div className="news_content_table">
+      <div
+        className="news_content_table"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <div className="news_content_item">
           <h3>тема новости</h3>
           <p>
@@ -63,7 +87,10 @@ const NewsInfo = () => {
             perspiciatis doloribus nihil.
           </p>
         </div>
-        <div className="news_content_overlay"></div>
+        <div
+          className={`news_content_overlay ${
+            isOverlayVisible ? "visible" : "leave"
+          }`}></div>
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -4,7 +4,7 @@ section {
   width: 100%;
 }
 .section-one-box {
-  height: 100vh;
+  height: 90vh;
 }
 
 #homepage-video {
@@ -32,12 +32,11 @@ section {
   top: 10vh;
   /* width: 100%; */
   min-width: 100%;
-  min-height: 100%;
   z-index: 0;
   /* background: rgba(249, 9, 9, 0.5); */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 }
 /* section {
   width: 100%;
@@ -121,7 +120,7 @@ p {
   flex-wrap: wrap;
 }
 .mainsection-options-item {
-  width: 25%;
+  width: 350px;
   background-color: #231f209f;
   color: white;
   margin: 3px;
@@ -175,11 +174,9 @@ p {
 
 .third-section-box {
   position: relative;
+  height: 70vh;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  margin-top: 10%;
+  margin-bottom: 350px;
 }
 .third-section-media {
   position: absolute;

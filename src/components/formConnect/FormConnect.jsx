@@ -37,31 +37,35 @@ const FormConnect = () => {
               value={address}
               type="text"
               onChange={e => setAddress(e.target.value)}
-              placeholder="address"
+              placeholder="Address"
               required
             />
             <input
               value={contacts}
               type="text"
               onChange={e => setContacts(e.target.value)}
-              placeholder="contacts"
+              placeholder="Contacts"
               required
             />
             <input
               value={email}
               type="email"
               onChange={e => setEmail(e.target.value)}
-              placeholder="email"
+              placeholder="Email"
               required
             />
             <input
               value={text}
               type="text"
               onChange={e => setText(e.target.value)}
-              placeholder="text"
+              placeholder="Text"
               required
             />
-            <select value={selectedOption} onChange={handleChange} required>
+            <select
+              className="select"
+              value={selectedOption}
+              onChange={handleChange}
+              required>
               <option value="">Выберите направление</option>
               <option value="option1">3D проектирование (BIM)</option>
               <option value="option2">Строительство</option>
@@ -73,7 +77,6 @@ const FormConnect = () => {
               <option value="option3">Международная логистика</option>
             </select>
           </div>
-          <hr />
           <div className="select_agreement">
             <input type="checkbox" onChange={handleChangeCheckBox} required />
 

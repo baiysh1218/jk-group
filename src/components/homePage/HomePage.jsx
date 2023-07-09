@@ -22,10 +22,53 @@ const HomePage = () => {
     { number: 500, img: user },
   ];
 
+  const cTabContent = {
+    title: [
+      "3D проектирование (BIM)",
+      "Строительство",
+      "Высокоточная металлообработка",
+      "Производство и монтаж вентиляционного оборудования",
+      "Учебный центр по стандартам TPS",
+      "Международная логистика",
+    ],
+    content: [
+      [
+        "Slide 1 - Content for 3D проектирование (BIM)",
+        "Slide 2 - Content for 3D проектирование (BIM)",
+        "Slide 3 - Content for 3D проектирование (BIM)",
+      ],
+      [
+        "Slide 1 - Content for Строительство",
+        "Slide 2 - Content for Строительство",
+        "Slide 3 - Content for Строительство",
+      ],
+      [
+        "Slide 1 - Content for Высокоточная металлообработка",
+        "Slide 2 - Content for Высокоточная металлообработка",
+        "Slide 3 - Content for Высокоточная металлообработка",
+      ],
+      [
+        "Slide 1 - Content for Производство и монтаж вентиляционного оборудования",
+        "Slide 2 - Content for Производство и монтаж вентиляционного оборудования",
+        "Slide 3 - Content for Производство и монтаж вентиляционного оборудования",
+      ],
+      [
+        "Slide 1 - Content for Учебный центр по стандартам TPS",
+        "Slide 2 - Content for Учебный центр по стандартам TPS",
+        "Slide 3 - Content for Учебный центр по стандартам TPS",
+      ],
+      [
+        "Slide 1 - Content for Международная логистика",
+        "Slide 2 - Content for Международная логистика",
+        "Slide 3 - Content for Международная логистика",
+      ],
+    ],
+  };
+
   const navigate = useNavigate();
   return (
     <main className="main_home_page">
-      <section className="section-one-box">
+      <section className="section-one-box third-section-box">
         <video autoPlay muted loop id="homepage-video">
           {/* <source src={mainVideo} type="video/mp4" /> */}
         </video>
@@ -38,9 +81,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="mainsection-options">
-            <a
-              className="mainsection-options-item"
-              onClick={() => navigate("/secondPage")}>
+            <a className="mainsection-options-item">
               3D проектирование (BIM)
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +95,6 @@ const HomePage = () => {
                   d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                 />
               </svg>
-              {/* <img src={constactions} alt="" /> */}
             </a>
             <a className="mainsection-options-item">
               Строительство
@@ -141,7 +181,7 @@ const HomePage = () => {
         <h2 className="sub_head">Учебный центр по стандартам TPS</h2>
       </div>
       <About />
-      <CtabCarousel />
+      <CtabCarousel cTabContent={cTabContent} />
       <div className="sub_head_wrapper">
         <h2 className="sub_head">Новости</h2>
       </div>

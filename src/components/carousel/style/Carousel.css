@@ -1,0 +1,13 @@
+#carousel_company_swiper {
+  width: 90%;
+  margin: auto;
+  margin-top: 250px;
+  margin-bottom: 150px;
+}
+
+.carousel_wrapper_item {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}

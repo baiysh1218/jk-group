@@ -1,0 +1,53 @@
+.team_structure_wrapper {
+  width: 90%;
+  margin: auto;
+  height: 1245px;
+  margin-bottom: 200px;
+}
+.team_structure_wrapper h2 {
+  margin-bottom: 7%;
+}
+.team_structure_card {
+  width: 300px;
+}
+
+.team_structure_card img {
+  width: 100%;
+}
+
+.team_structure_card_content {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  font-size: 1.3rem;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.team_structure_card_content button {
+  width: 35px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 26px;
+}
+.team_structure_item_wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+.dropdown_main_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+hr {
+  border: 1.5px solid black;
+  width: 72%;
+  position: absolute;
+  left: 15%;
+  bottom: 300px;
+}

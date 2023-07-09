@@ -99,24 +99,6 @@ body {
   font-size: 20px;
   text-align: start;
 }
-/* .swiper-pagination span:nth-child(1)::before {
-  content: "Международная логистика";
-}
-.swiper-pagination span:nth-child(2)::before {
-  content: "Учебный центр по стандартам TPS";
-}
-.swiper-pagination span:nth-child(3)::before {
-  content: "Направление: инжинерия";
-}
-.swiper-pagination span:nth-child(4)::before {
-  content: "Направление: логистика";
-}
-.swiper-pagination span:nth-child(5)::before {
-  content: "Направление: Строительство";
-}
-.swiper-pagination span:nth-child(6)::before {
-  content: "Направление: Металлопроизводство";
-} */
 
 .swiper-pagination-vertical.swiper-pagination-bullets,
 .swiper-vertical > .swiper-pagination-bullets {
@@ -147,4 +129,41 @@ ul {
 }
 .swiper_slide {
   background-color: #f1f2f2;
+}
+.about_wrapper_img {
+  height: 100vh;
+  margin-top: 80px;
+  position: relative;
+}
+.about_conteiner {
+  width: 90%;
+  margin: auto;
+}
+.about_img_block {
+  background-color: red;
+  height: 80%;
+}
+
+.about_img_block h3 {
+  width: 20%;
+  left: 8%;
+  position: absolute;
+  top: 17%;
+  font-size: 26px;
+}
+
+.about_img_content {
+  position: absolute;
+  right: 0%;
+  top: 40%;
+  background-color: green;
+  height: 55%;
+  width: 44%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about_img_content p {
+  width: 20%;
 }

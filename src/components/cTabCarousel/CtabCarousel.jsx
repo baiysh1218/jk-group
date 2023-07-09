@@ -10,7 +10,7 @@ import "./style/cTabCarousel.css";
 // import required modules
 import { Navigation } from "swiper";
 
-const CtabCarousel = ({ marker }) => {
+const CtabCarousel = ({ marker, cTabContent }) => {
   const tabsRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -69,76 +69,38 @@ const CtabCarousel = ({ marker }) => {
       setMarker(tabNavigationLinks[activeIndex]);
     }
   }, [activeIndex, marker]);
+
   return (
     <section id="page">
       <div id="tabs" className="c-tabs" ref={tabsRef}>
         <div className="c-tabs-nav">
-          <a href="#" className="c-tabs-nav__link is-active">
-            3D проектирование (BIM)
-          </a>
-          <a href="#" className="c-tabs-nav__link">
-            Строительство
-          </a>
-          <a href="#" className="c-tabs-nav__link">
-            Высокоточная металлообработка
-          </a>
-          <a href="#" className="c-tabs-nav__link">
-            Производство и монтаж вентиляционного оборудования
-          </a>
-          <a href="#" className="c-tabs-nav__link">
-            Учебный центр по стандартам TPS
-          </a>
-          <a href="#" className="c-tabs-nav__link">
-            Международная логистика
-          </a>
+          {cTabContent.title.map((text, index) => (
+            <a
+              href="#"
+              className={`c-tabs-nav__link ${
+                index === activeIndex ? "is-active" : ""
+              }`}
+              key={index}>
+              {text}
+            </a>
+          ))}
           <div className="c-tab-nav-marker"></div>
         </div>
 
-        <div className="c-tab is-active">
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-          </Swiper>
-        </div>
-
-        <div className="c-tab">
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-          </Swiper>
-        </div>
-
-        <div className="c-tab">
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-          </Swiper>
-        </div>
-
-        <div className="c-tab">
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-          </Swiper>
-        </div>
-        <div className="c-tab">
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-          </Swiper>
-        </div>
-        <div className="c-tab">
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-          </Swiper>
-        </div>
+        {cTabContent.content.map((item, index) => (
+          <div
+            className={`c-tab ${index === activeIndex ? "is-active" : ""}`}
+            key={index}>
+            <Swiper
+              navigation={true}
+              modules={[Navigation]}
+              className="mySwiper">
+              {item.map((slide, slideIndex) => (
+                <SwiperSlide key={slideIndex}>{slide}</SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        ))}
       </div>
     </section>
   );

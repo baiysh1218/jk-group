@@ -6,9 +6,7 @@
   .header-list {
     display: none;
   }
-  header {
-    height: 68px;
-  }
+
   .header-btns button {
     width: 68px;
     height: 68px;
@@ -27,14 +25,20 @@
   .mainsection-options {
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   .mainsection-options-item {
-    width: calc(50% - 2px);
+    width: 30%;
     margin: 0;
     margin-bottom: 4px;
     padding: 15px;
+    word-wrap: normal;
   }
+
+  .main_home_page {
+    margin-top: -300px;
+  }
+
   /* main section 1 end */
   /* third section end*/
   .third-section-box {
@@ -56,6 +60,13 @@
   .search_button {
     font-size: 18px;
     width: 14%;
+  }
+  /* HEADER */
+  .header-content {
+    display: none !important;
+  }
+  .modal-window-box {
+    display: block;
   }
 }
 
@@ -328,7 +339,7 @@
 
 @media screen and (max-width: 500px) {
   #header-logo {
-    width: 50px;
+    width: 150px;
     font-size: 30px;
   }
   .second-section-right-number {
@@ -356,9 +367,6 @@
 }
 
 @media all and (max-width: 1400px) {
-  #header-logo img {
-    width: 0;
-  }
   .menu {
     display: block;
     background-color: #f1f2f2;
@@ -366,11 +374,14 @@
   .header-content {
     display: none;
   }
-  .nav_logo_web {
-    display: none;
-  }
+
   .nav_logo_mobile {
     display: block;
-    width: 85px !important;
+  }
+}
+
+@media all and(max-width: 950px) {
+  .swiper-wrapper {
+    height: 110vh;
   }
 }
