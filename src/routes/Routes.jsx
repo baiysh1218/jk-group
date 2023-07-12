@@ -8,6 +8,7 @@ import History from "../components/history/History";
 import HomePage from "../components/homePage/HomePage";
 import Loader from "../components/loader/Loader";
 import MissionValues from "../components/missionValues/MissionValues";
+import NewsInfo from "../components/newsInfo/NewsInfo";
 
 import PageNotFound from "../components/pageNotFound/PageNotFound";
 import Partners from "../components/partners/Partners";
@@ -25,7 +26,7 @@ const MainRoutes = () => {
     <Routes>
       {/* Define routes and their corresponding components */}
       <Route path="/" element={<HomePage />} />
-      <Route path="/about/1" element={<AboutMain />} />
+      <Route path="/about/:id" element={<AboutMain />} />
       <Route path="/products" element={<ProjectsList />} />
       <Route path="/team" element={<TeamPage />} />
       <Route path="/about/history" element={<History />} />
@@ -37,6 +38,8 @@ const MainRoutes = () => {
       <Route path="/vacansies" element={<Vacansies />} />
       <Route path="/team/structure/:id" element={<TeamStructure />} />
       <Route path="/resume" element={<Resume />} />
+      <Route path="/news" element={<NewsInfo />} />
+      <Route path="/team/section/:id" element={<Section />} />
       {/* The following route matches any other path */}
       <Route path="/*" element={<PageNotFound />} />
     </Routes>

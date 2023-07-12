@@ -1,5 +1,5 @@
 .news_wrapper {
-  margin-top: 5%;
+  margin-top: 10%;
   width: 100%;
   height: 400px;
   display: flex;
@@ -36,7 +36,7 @@
   left: 0;
   width: 100%;
   height: 0;
-  background-color: #92bd59;
+  background-color: #1d1d1b;
   opacity: 0;
   z-index: -1;
 }
@@ -44,7 +44,7 @@
 .news_content_overlay.leave {
   animation: slideDown s ease;
   bottom: -200px;
-  background-color: #92bd59;
+  background-color: #1d1d1b;
 }
 
 @keyframes slideDown {
@@ -66,7 +66,8 @@
 }
 
 .news_content_table button {
-  background-color: #92bd59;
+  background-color: #1d1d1b;
+  color: white;
   width: 20%;
   border: none;
   height: 50px;
@@ -74,4 +75,11 @@
 
 .news_content_table:hover {
   transform: translateY(-150px);
+}
+.news_bottom_block {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  z-index: 10;
+  background-color: #f2f2f2;
 }

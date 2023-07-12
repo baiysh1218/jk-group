@@ -26,7 +26,9 @@ const TeamPage = () => {
           </div>
           <div className="our_team_page_button_wrapper">
             {companyContent.map(item => (
-              <button onClick={() => getOneCompany(item)}>{item.name}</button>
+              <button key={item.id} onClick={() => getOneCompany(item)}>
+                {item.name}
+              </button>
             ))}
           </div>
         </div>

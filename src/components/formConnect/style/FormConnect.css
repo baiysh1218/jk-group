@@ -7,7 +7,9 @@
   width: 90%;
   margin: auto;
   height: 100vh;
+  margin-bottom: 18%;
 }
+
 .form_connect_wrapper {
   padding-top: 5%;
   width: 70%;
@@ -23,6 +25,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .form_input_wrapper {
   width: 50%;
   display: flex;
@@ -46,11 +49,13 @@
   font-size: 23px;
   margin-bottom: 4%;
 }
+
 .form_input_wrapper input:nth-child(1),
 .form_input_wrapper input:nth-child(2),
 .form_input_wrapper input:nth-child(3) {
   margin-right: 10px;
 }
+
 .form_input_wrapper select {
   width: 100%;
   width: 100%;
@@ -70,16 +75,20 @@
   border: none;
   outline: none;
 }
+
 .form_input_wrapper select option:hover {
   background-color: #9a9a9a;
 }
+
 .form_input_wrapper select option:checked {
   background-color: #92bd59;
 }
+
 .form_input_wrapper select:focus {
   outline: none;
   background-color: transparent;
 }
+
 .select_agreement {
   margin-top: 2%;
   width: 100%;
@@ -130,7 +139,7 @@ input[type="checkbox"]:checked::before {
 .select_agreement_button_wrapper button {
   width: 140px;
   height: 40px;
-  background-color: #92bd59;
+  background-color: #1d1d1b;
   border: none;
   color: white;
   cursor: pointer;

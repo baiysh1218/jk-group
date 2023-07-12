@@ -1,7 +1,7 @@
 /* !footer start */
 
 .footer {
-  background-color: #3f3f42;
+  background-color: #1d1d1b;
   padding: 100px 50px 0 50px;
   color: white;
   position: relative;
@@ -13,7 +13,6 @@
 .footer-top-box-text {
   width: 30%;
   font-size: 17px;
-  /* margin-top: 0; */
 }
 .footer-top-box-text p {
   line-height: 30px;

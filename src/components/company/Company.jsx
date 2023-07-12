@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { pageContext } from "../../contexts/PageContext/PageContext";
 import Carousel from "../carousel/Carousel";
 import FormConnect from "../formConnect/FormConnect";
@@ -6,14 +6,13 @@ import FormConnect from "../formConnect/FormConnect";
 import "./style/Company.css";
 
 const Company = () => {
-  const result = useContext(pageContext);
-  console.log(result);
+  const { currentCompany } = useContext(pageContext);
 
   return (
     <>
       <div className="company_main_wrapper">
         <div className="company_content_text_wrapper">
-          <h2>JK ENGINEERING</h2>
+          <h2>HEADER</h2>
           <h4>О компании</h4>
           <div className="company_block_content">TEXT</div>
           <h4>МИССИЯ И ЦЕННОСТИ</h4>

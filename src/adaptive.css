@@ -36,13 +36,16 @@
   }
 
   .main_home_page {
-    margin-top: -300px;
+    margin-top: 90px;
   }
-
+  .content-box {
+    top: -107%;
+  }
   /* main section 1 end */
   /* third section end*/
   .third-section-box {
     margin-top: 0;
+    top: -612px;
   }
   /* third section */
 
@@ -380,8 +383,13 @@
   }
 }
 
-@media all and(max-width: 950px) {
+@media all and (max-width: 950px) {
   .swiper-wrapper {
     height: 110vh;
+  }
+}
+@media all and (max-width: 560px) {
+  .third-section-box {
+    top: -290px;
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Carousel from "../carousel/Carousel";
 import CardAnimation from "../layout/cardAnimation/CardAnimation";
 
 const History = () => {

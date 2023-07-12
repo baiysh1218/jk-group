@@ -46,13 +46,6 @@ const CtabCarousel = ({ marker, cTabContent }) => {
       }
     };
 
-    const createNavMarker = tabLinks => {
-      const marker = document.createElement("div");
-      marker.classList.add("c-tab-nav-marker");
-      tabLinks.appendChild(marker);
-      return marker;
-    };
-
     const setMarker = element => {
       if (marker) {
         marker.style.left = element.offsetLeft + "px";

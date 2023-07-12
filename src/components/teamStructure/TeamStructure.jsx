@@ -15,8 +15,6 @@ const TeamStructure = () => {
 
   const { id } = useParams();
 
-  console.log(teamAll);
-
   useEffect(() => {
     getTeamInfoAll();
   }, []);
@@ -37,7 +35,7 @@ const TeamStructure = () => {
 
   const teamCompany = teamAll.filter(company => company.company === id);
 
-  return teamAll ? (
+  return (
     <>
       <div className="team_structure_wrapper">
         <div className="team_structure_img_content">
@@ -78,10 +76,6 @@ const TeamStructure = () => {
           ))}
         </div>
       </div>
-    </>
-  ) : (
-    <>
-      <Loader />
     </>
   );
 };

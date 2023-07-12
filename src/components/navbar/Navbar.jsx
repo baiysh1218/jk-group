@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./style/Navbar.css";
@@ -9,8 +9,14 @@ import JKLogo from "../../assets/icons/JKGroup_black_nav_logo.png";
 import search from "../../assets/icons/search.png";
 import arrow from "../../assets/icons/down-arrow.png";
 import DropdownContent from "../layout/dropdownContent/DropdownContent";
+import { pageContext } from "../../contexts/PageContext/PageContext";
 
 const Navbar = () => {
+  const { getLine, line } = useContext(pageContext);
+  useEffect(() => {
+    getLine();
+  }, []);
+  // console.log(line);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [indexDropDown, setIndexDropDown] = useState(null);
 
@@ -54,9 +60,9 @@ const Navbar = () => {
               id: 3,
             },
           ],
-          [{ item: "Строительство", path: "/team/construction" }],
-          [{ item: "Международная логистика", path: "/team/logistic" }],
-          [{ item: "Высокоточная металлообработка", path: "/team/metalprof" }],
+          [{ item: "Строительство", path: "/team/section" }],
+          [{ item: "Международная логистика", path: "/team/section", id: 4 }],
+          [{ item: "Высокоточная металлообработка", path: "/team/section" }],
         ],
       },
       id: 1,
@@ -100,6 +106,7 @@ const Navbar = () => {
                       content={dropDownContent[index].content}
                       toggleDropdown={toggleDropdown}
                       index={index}
+                      line={line}
                     />
                   )}
                 </>
@@ -216,6 +223,7 @@ const Navbar = () => {
                           content={dropDownContent[index].content}
                           toggleDropdown={toggleDropdown}
                           index={index}
+                          dropDownClass={"dropDownClass"}
                         />
                       )}
                     </>

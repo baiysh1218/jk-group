@@ -9,5 +9,9 @@
   width: 90%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+}
+.carousel_img_wrapper {
+  width: 40%;
 }

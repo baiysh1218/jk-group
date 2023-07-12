@@ -14,18 +14,18 @@ import CardAnimation from "../layout/cardAnimation/CardAnimation";
 const AboutMain = () => {
   const maxValue = [
     { number: 6, img: direction },
-    { number: 1000, img: project },
-    { number: 500, img: user },
+    { number: 50, img: project },
+    { number: 40, img: user },
   ];
 
   return (
     <>
       <AboutContent />
       <Statis maxValues={maxValue} />
-      <div className="stats_wrapper_about">
+      {/* <div className="stats_wrapper_about">
         <h3>Загаловок</h3>
         <p>Место для текста</p>
-      </div>
+      </div> */}
     </>
   );
 };

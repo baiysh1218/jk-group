@@ -44,10 +44,11 @@
 }
 
 .stats-number {
-  background-color: rgb(44, 153, 189);
+  background-color: #1c75bc;
   width: 33%;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }

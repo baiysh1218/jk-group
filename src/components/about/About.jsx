@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,32 +11,30 @@ import "./style/About.css";
 
 // import required modules
 import { Mousewheel, Pagination } from "swiper";
+import { pageContext } from "../../contexts/PageContext/PageContext";
 
 const About = () => {
+  const { companyContent, getCompanyAll } = useContext(pageContext);
+
+  useEffect(() => {
+    getCompanyAll();
+  }, []);
+
   const swiperRef = useRef(null);
 
-  console.log(swiperRef);
-
-  const swiperSpanContent = [
-    "Учебный центр по стандартам TPS",
-    "Международная логистика",
-    "Направление: инжинерия",
-    "Направление: логистика",
-    "Направление: Строительство",
-    "Направление: Металлопроизводство",
-  ];
-  // console.log(swiperRef.current.swiper.pagination);
   useEffect(() => {
     if (swiperRef.current) {
       const swiperInstanse = swiperRef.current.swiper;
       if (swiperInstanse && swiperInstanse.pagination) {
         const paginationEl = swiperInstanse.pagination.bullets;
-        for (let i = 0; i < paginationEl.length; i++) {
-          paginationEl[i].innerText = swiperSpanContent[i];
+        for (let i = 0; i < companyContent.length; i++) {
+          paginationEl[i].innerText = companyContent[i]?.name;
         }
       }
     }
-  }, []);
+  }, [companyContent]);
+
+  console.log(companyContent);
   return (
     <>
       <Swiper
@@ -54,8 +52,6 @@ const About = () => {
         <SwiperSlide className="swiper_slide">Slide 2</SwiperSlide>
         <SwiperSlide className="swiper_slide">Slide 3</SwiperSlide>
         <SwiperSlide className="swiper_slide">Slide 4</SwiperSlide>
-        <SwiperSlide className="swiper_slide">Slide 5</SwiperSlide>
-        <SwiperSlide className="swiper_slide">Slide 6</SwiperSlide>
       </Swiper>
     </>
   );
