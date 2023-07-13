@@ -1,0 +1,11 @@
+.career_main_wrapper {
+  width: 90%;
+  height: 550px;
+  margin: 80px auto 80px;
+  padding-top: 80px;
+}
+
+.media_content {
+  background-color: red;
+  height: 100%;
+}

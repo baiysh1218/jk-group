@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect, useContext } from "react";
+// import "./adaptive.css";
+import "./App.css";
+import Footer from "./components/footer/Footer";
+import Loader from "./components/loader/Loader";
+
+import Navbar from "./components/navbar/Navbar";
+import { pageContext } from "./contexts/PageContext/PageContext";
+import MainRoutes from "./routes/Routes";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const { main } = useContext(pageContext);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, [main]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Navbar />
+          <MainRoutes />
+          <Footer />
+        </>
+      )}
+    </>
   );
 }
 

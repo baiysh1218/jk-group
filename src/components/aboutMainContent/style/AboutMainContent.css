@@ -1,0 +1,44 @@
+.stats_wrapper_about {
+  width: 90%;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.stats_wrapper_about h3 {
+  font-size: 30px;
+}
+
+.stats_wrapper_about p {
+  font-size: 20px;
+}
+
+.history_company {
+  width: 90%;
+  height: 525px;
+  margin: 5% auto;
+}
+.history_company_wrapper_img {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+.history_company_wrapper_img h2 {
+  margin-top: 8%;
+  margin-left: 8%;
+}
+
+.history_company_wrapper_content {
+  width: 35vw;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  margin-top: 225px;
+}
