@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { pageContext } from "../../contexts/PageContext/PageContext";
 import Carousel from "../carousel/Carousel";
 import CardAnimation from "../layout/cardAnimation/CardAnimation";
 
 const History = () => {
+  const { history, getHistory } = useContext(pageContext);
+
+  useEffect(() => {
+    getHistory();
+  }, []);
+  console.log("History", history);
+
   const cardContent = [
     {
       img: "IMG",

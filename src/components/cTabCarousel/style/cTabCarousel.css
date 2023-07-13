@@ -1,3 +1,12 @@
 .c-tabs-nav .is-active {
   background-color: transparent;
 }
+.swiper_content img {
+  object-position: center;
+  height: 598px;
+  width: 1357px;
+  position: absolute;
+  z-index: -1;
+  top: -3px;
+  left: 0;
+}

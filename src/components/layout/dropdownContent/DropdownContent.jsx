@@ -13,7 +13,7 @@ const DropdownContent = ({ content, toggleDropdown, index, dropDownClass }) => {
   }, []);
 
   const handleClickDropDown = item => {
-    navigate(`${item.path}/${item.id}`);
+    navigate(`${item.path}/${item.title}`);
     toggleDropdown(index);
   };
 

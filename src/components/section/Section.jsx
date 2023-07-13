@@ -35,7 +35,9 @@ const Section = () => {
                 __html: data?.description,
               }}></p>
           </div>
-          <Carousel data={data} />
+          <div className="carousel_section">
+            <Carousel data={data} />
+          </div>
         </div>
       )}
     </>

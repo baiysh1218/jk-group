@@ -10,6 +10,10 @@ const INIT_STATE = {
   main: [],
   line: [],
   currentCompany: [],
+  posts: [],
+  postsAll: [],
+  history: [],
+  oneCompany: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -24,6 +28,18 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, line: action.payload };
     case "GET_CURRENT_COMPANY":
       return { ...state, currentCompany: action.payload };
+    case "GET_POSTS":
+      return { ...state, posts: action.payload };
+    case "GET_FILTERED_POSTS":
+      return { ...state, posts: action.payload };
+    case "GET_CATEGORY":
+      return { ...state, category: action.payload };
+    case "POSTS_ALL":
+      return { ...state, postsAll: action.payload };
+    case "GET_HISTORY":
+      return { ...state, history: action.payload };
+    case "GET_ONE_COMPANY":
+      return { ...state, oneCompany: action.payload };
     default:
       return state;
   }
@@ -81,8 +97,6 @@ const PageContextProvider = ({ children }) => {
     try {
       const result = await axios(`${API}/ru/main`);
 
-      console.log(result);
-
       dispatch({ type: "GET_MAIN_CONTENT", payload: result.data.data.results });
     } catch (error) {
       console.error(error);
@@ -92,8 +106,59 @@ const PageContextProvider = ({ children }) => {
   async function getLine() {
     try {
       const result = await axios(`${API}/ru/line/all`);
-      console.log(result);
       dispatch({ type: "GET_LINE_CONTENT", payload: result.data.results });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function getPosts() {
+    try {
+      const result = await axios(`${API}/ru/posts/all`);
+
+      const newUrl = window.location.pathname;
+      window.history.pushState(null, null, newUrl);
+
+      dispatch({ type: "GET_POSTS", payload: result.data.results });
+      dispatch({ type: "POSTS_ALL", payload: result.data.results });
+
+      const uniqueData = result.data.results.filter((item, index, arr) => {
+        const firstIndex = arr.findIndex(obj => obj.category === item.category);
+        return firstIndex === index;
+      });
+      dispatch({ type: "GET_CATEGORY", payload: uniqueData });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function filteredPosts(category) {
+    try {
+      const searchParams = new URLSearchParams(window.location.search);
+      searchParams.set("category", category);
+      const queryParams = searchParams.toString();
+
+      const result = await axios(`${API}/en/posts/all/?${queryParams}`);
+      dispatch({ type: "GET_FILTERED_POSTS", payload: result.data.results });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function getHistory() {
+    try {
+      const result = await axios(`${API}/ru/history/all/`);
+      dispatch({ type: "GET_HISTORY", payload: result.data.results });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function getOneCompanyId(id) {
+    try {
+      const result = await axios(`${API}/line/${id}/`);
+
+      dispatch({ type: "GET_ONE_COMPANY", payload: result.data.results });
     } catch (error) {
       console.error(error);
     }
@@ -106,6 +171,10 @@ const PageContextProvider = ({ children }) => {
     getMainContent,
     getLine,
     handleFiltered,
+    getPosts,
+    filteredPosts,
+    getHistory,
+    getOneCompanyId,
 
     oneCompany: companyOne,
     teamAll: state.teamAll,
@@ -113,6 +182,11 @@ const PageContextProvider = ({ children }) => {
     line: state.line,
     main: state.main,
     currentCompany: state.currentCompany,
+    posts: state.posts,
+    category: state.category,
+    postsAll: state.postsAll,
+    history: state.history,
+    oneCompany: state.oneCompany,
   };
 
   return <pageContext.Provider value={value}>{children}</pageContext.Provider>;

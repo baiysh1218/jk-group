@@ -1,18 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-
 import "./style/cTabCarousel.css";
-
-// import required modules
 import { Navigation } from "swiper";
+import { pageContext } from "../../contexts/PageContext/PageContext";
+import Loader from "../loader/Loader";
 
 const CtabCarousel = ({ marker, cTabContent }) => {
   const tabsRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true); // Состояние загрузки
+
+  const { line, getLine } = useContext(pageContext);
+
+  console.log("LINE", line);
+
+  useEffect(() => {
+    getLine();
+  }, []);
 
   useEffect(() => {
     const tabNavigationLinks =
@@ -46,6 +52,13 @@ const CtabCarousel = ({ marker, cTabContent }) => {
       }
     };
 
+    const createNavMarker = tabLinks => {
+      const marker = document.createElement("div");
+      marker.classList.add("c-tab-nav-marker");
+      tabLinks.appendChild(marker);
+      return marker;
+    };
+
     const setMarker = element => {
       if (marker) {
         marker.style.left = element.offsetLeft + "px";
@@ -63,37 +76,72 @@ const CtabCarousel = ({ marker, cTabContent }) => {
     }
   }, [activeIndex, marker]);
 
+  const handleSwiperSlideChange = () => {
+    setIsLoading(true); // Устанавливаем состояние загрузки в true при изменении слайда Swiper
+  };
+
+  const handleSwiperSlideTransitionEnd = () => {
+    setIsLoading(false); // Устанавливаем состояние загрузки в false, когда переход Swiper завершен
+  };
+
   return (
     <section id="page">
       <div id="tabs" className="c-tabs" ref={tabsRef}>
         <div className="c-tabs-nav">
-          {cTabContent.title.map((text, index) => (
+          {line?.map((text, index) => (
             <a
               href="#"
               className={`c-tabs-nav__link ${
                 index === activeIndex ? "is-active" : ""
               }`}
               key={index}>
-              {text}
+              {text.title}
             </a>
           ))}
           <div className="c-tab-nav-marker"></div>
         </div>
 
-        {cTabContent.content.map((item, index) => (
-          <div
-            className={`c-tab ${index === activeIndex ? "is-active" : ""}`}
-            key={index}>
-            <Swiper
-              navigation={true}
-              modules={[Navigation]}
-              className="mySwiper">
-              {item.map((slide, slideIndex) => (
-                <SwiperSlide key={slideIndex}>{slide}</SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        ))}
+        {line?.map((item, index) => {
+          if (typeof item === "object") {
+            return (
+              <div
+                className={`c-tab ${index === activeIndex ? "is-active" : ""}`}
+                key={index}>
+                <Swiper
+                  navigation={true}
+                  modules={[Navigation]}
+                  className="mySwiper"
+                  onSlideChange={handleSwiperSlideChange} // Обработчик изменения слайда
+                  onTransitionEnd={handleSwiperSlideTransitionEnd} // Обработчик завершения перехода
+                >
+                  {item.extra_fields.map(content => {
+                    if (typeof content === "object") {
+                      return (
+                        <SwiperSlide key={content.id}>
+                          <div className="swiper_content">
+                            <h3
+                              dangerouslySetInnerHTML={{
+                                __html: content.sub_title,
+                              }}></h3>
+                            <p
+                              dangerouslySetInnerHTML={{
+                                __html: content.description,
+                              }}></p>
+                            <img
+                              src={content.picture}
+                              alt={content.description}
+                            />
+                          </div>
+                        </SwiperSlide>
+                      );
+                    }
+                  })}
+                </Swiper>
+                {isLoading && <Loader />}
+              </div>
+            );
+          }
+        })}
       </div>
     </section>
   );
